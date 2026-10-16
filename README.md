@@ -107,22 +107,81 @@ SmartBlindStick/
 
 ---
 
-## Getting Started & Security Configuration
+## Getting Started / How to Run
 
-1. **Firmware Setup (`StickFirmware/StickFirmware.ino`):**
-   - Open in Arduino IDE or PlatformIO.
-   - Configure your local hotspot credentials (`ssid` and `password`) before flashing to the ESP32 board.
-2. **Backend Setup (`VisionBackend/`):**
-   - Place your Google Cloud service account key at `VisionBackend/service_account.json` (excluded from Git via `.gitignore`).
-   - Run the server:
-     ```bash
-     python app.py
-     ```
-3. **Mobile App Setup (`VisionAssistApp/`):**
-   - Run the Flutter app and pass your Gemini API key securely at build time:
-     ```bash
-     flutter run --dart-define=GEMINI_API_KEY=your_api_key_here
-     ```
+### Prerequisites
+- **Hardware:** ESP32 Dev Module, AI-Thinker ESP32-CAM, Arduino Nano, VL53L5CX, VL53L0X, MPU6050, NEO-M8N GPS, SIM800L, NRF24L01, Capacitive Touch Sensor.
+- **Software:**
+  - [Arduino IDE](https://www.arduino.cc/en/software) (with ESP32 board support package installed)
+  - [Python 3.9+](https://www.python.org/downloads/)
+  - [Flutter SDK 3.0+](https://docs.flutter.dev/get-started/install)
+
+---
+
+### 1. Hardware: Flashing the ESP32 / Arduino Firmware (`StickFirmware.ino`)
+
+1. Open [`StickFirmware/StickFirmware.ino`](StickFirmware/StickFirmware.ino) in the **Arduino IDE**.
+2. Install the required libraries via **Sketch > Include Library > Manage Libraries**:
+   - `ArduinoJson`
+   - `Adafruit VL53L0X`
+   - `Adafruit MPU6050`
+   - `TinyGPSPlus`
+3. Update the Wi-Fi hotspot credentials at the top of `StickFirmware.ino`:
+   ```cpp
+   const char* ssid = "YOUR_WIFI_NAME";
+   const char* password = "YOUR_WIFI_PASSWORD";
+   ```
+4. Select **Tools > Board > ESP32 Arduino > AI Thinker ESP32-CAM** (or your target ESP32 board) and choose the corresponding `COM` port.
+5. Click **Upload** to flash the firmware.
+6. Open the **Serial Monitor** at `115200` baud to verify sensor initialization and note the printed `ESP32 IP` address.
+
+---
+
+### 2. Backend: Setting Up & Running the Flask Server (`VisionBackend`)
+
+1. Open a terminal and navigate to the `VisionBackend` directory:
+   ```bash
+   cd VisionBackend
+   ```
+2. (Recommended) Create and activate a Python virtual environment:
+   ```bash
+   # Windows (PowerShell)
+   python -m venv venv
+   .\venv\Scripts\Activate.ps1
+
+   # macOS / Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Install the Python dependencies from `requirements.txt`:
+   ```bash
+   pip install -r requirements.txt
+   # Or install core packages directly if needed:
+   pip install flask requests google-cloud-vision
+   ```
+4. Place your Google Cloud Vision API key file in the `VisionBackend/` folder as `service_account.json` (this file is automatically ignored by `.gitignore`) and verify `ESP_IP` in `app.py` matches your ESP32's IP address.
+5. Start the Flask server (listens on `0.0.0.0:8000`):
+   ```bash
+   python app.py
+   ```
+
+---
+
+### 3. Mobile App: Installing Dependencies & Running Flutter (`VisionAssistApp`)
+
+1. Open a new terminal and navigate to the `VisionAssistApp` directory:
+   ```bash
+   cd VisionAssistApp
+   ```
+2. Fetch the Flutter/Dart packages:
+   ```bash
+   flutter pub get
+   ```
+3. Pair your mobile device with the stick's Bluetooth module (`VisionStick_BT` or `ESP32_BlindStick`) and connect to the same Wi-Fi hotspot as the ESP32-CAM.
+4. Run the application on your connected device (passing your Gemini API key securely via `--dart-define`):
+   ```bash
+   flutter run --dart-define=GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 
 ---
 
