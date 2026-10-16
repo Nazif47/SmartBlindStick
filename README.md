@@ -185,10 +185,7 @@ SmartBlindStick/
 
 ---
 
-## Contributors & Academic Credits
-
-**Department of Electronics and Communication Engineering**  
-**BGS Institute of Technology (Adichunchanagiri University)** — *BG Nagara, Mandya, Karnataka*
+## Contributors
 
 - **Team Lead:**
   - **Nazif Gangawali**
