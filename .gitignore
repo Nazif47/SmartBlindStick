@@ -1,0 +1,118 @@
+# ==========================================
+# Secrets, Credentials & Environment Files
+# ==========================================
+.env
+*.env
+.env.*
+!.env.example
+service_account.json
+*service_account*.json
+*credentials*.json
+*.pem
+*.key
+*.keystore
+*.jks
+local.properties
+key.properties
+
+# ==========================================
+# Python / VisionBackend Artifacts
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+env/
+ENV/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Flutter / Dart / VisionAssistApp Artifacts
+# ==========================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+**/build/
+flutter_*.png
+linked_*.ds
+unlinked.ds
+unlinked_spec.ds
+*.lock
+
+# Android / iOS / Platform Build Folders
+**/android/**/gradle-wrapper.jar
+**/android/.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/acup.xcworkspace
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# ==========================================
+# Arduino / ESP32 Firmware Build Artifacts
+# ==========================================
+*.bin
+*.elf
+*.hex
+*.map
+.pio/
+.vscode/
+
+# ==========================================
+# OS & IDE Files
+# ==========================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+*.iml

@@ -1,0 +1,31 @@
+name: vision_assist_app
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  onnxruntime: ^1.4.1
+  cupertino_icons: ^1.0.8
+  flutter_tts: ^4.2.3
+  mjpeg_stream: ^1.0.1
+  url_launcher: ^6.3.0
+  image: ^4.1.7
+  camera: ^0.11.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/best.onnx
