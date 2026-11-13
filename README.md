@@ -102,6 +102,7 @@ SmartBlindStick/
 │   ├── app.py                   # Flask microservice for Google Cloud Vision object localization
 │   └── requirements.txt         # Python backend dependencies
 ├── .gitignore                   # Security & build artifact exclusions
+├── LICENSE                      # MIT License
 └── README.md                    # Project documentation
 ```
 
@@ -194,4 +195,11 @@ SmartBlindStick/
   - **Harsha KG**
   - **Bhuvan MS**
   - **Hamsika MK**
-  - **Chandana JK** 
+  - **Chandana JK**
+
+---
+
+## License
+
+This project is open-sourced under the **MIT License**. See the [LICENSE](./LICENSE) file for full details.
+
